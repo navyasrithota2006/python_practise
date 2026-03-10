@@ -43,6 +43,12 @@ def palindrome(s):
     s=s.replace(" ","").lower()
     return s==s[::-1]
 
+def print_box(n):
+    for i in range(n):
+        for j in range(n):
+            print("*",end=' ')
+        print()
+
 
 print(printHello("Alice"))
 print(evenorodd(5))
@@ -52,3 +58,4 @@ print(fibonnacci(5))
 print(prime(7))
 print(prime(10))
 print(palindrome("raZar"))
+print_box(5)
