@@ -85,9 +85,25 @@ def left_triangle(n):
         print()
 
 
-'''def triangle_numbers_0or1(n):
-    for i in range(n):'''
+def right_triangle_oand_1(n):
+    start =1
+    for i in range(n):
+        if i%2==0: start = 1
+        else: start =0
+        for j in range(i+1):
+            print(start,end=' ')
+            start = 1-start
+        print()
 
+def w_building(n):
+    for i in range(1,n+1):
+        for j in range(i):
+            print(j+1,end=' ')
+        print()
+        for j in range(2*(n-i)):
+            print(' ',end=' ')
+        for j in reversed(range(i)):
+            print(j+1,end=' ')
 
 
 
@@ -114,3 +130,7 @@ for _ in range(t):
     diamond(n)
     print('Left Triangle:')
     left_triangle(n)
+    print('Right Triangle of 0 and 1:')
+    right_triangle_oand_1(n)
+    print('W Building:')
+    w_building(n)
