@@ -77,14 +77,17 @@ def diamond(n):
         # reverse_pyramid(n)
 
 def left_triangle(n):
-    for i in range(1,n+1):
-        for j in range(i):
+    for i in range(1,2*n):
+        stars =i
+        if i>n: stars = 2*n-i
+        for j in range(stars):
             print('*',end=' ')
         print()
-    for i in range(1,n+1):
-        for j in range(n-i+1):
-            print('*',end=' ')
-        print()
+
+
+'''def triangle_numbers_0or1(n):
+    for i in range(n):'''
+
 
 
 
