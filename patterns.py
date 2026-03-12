@@ -105,6 +105,14 @@ def w_building(n):
             print(j,end=' ')
         print()
 
+def right_angle_triangle_continuous_numbers(n):
+    num = 1
+    for i in range(1,n+1):
+        for j in range(i):
+            print(num, end=' ')
+            num += 1
+        print()
+
 
 
 t=int(input())
@@ -134,3 +142,5 @@ for _ in range(t):
     right_triangle_oand_1(n)
     print('W Building:')
     w_building(n)
+    print('Right Angle Triangle of Continuous Numbers:')
+    right_angle_triangle_continuous_numbers(n)
