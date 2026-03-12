@@ -102,8 +102,10 @@ def w_building(n):
         print()
         for j in range(2*(n-i)):
             print(' ',end=' ')
-        for j in reversed(range(i)):
-            print(j+1,end=' ')
+        print()
+        for j in range(i,0,-1):
+            print(j,end=' ')
+        print()
 
 
 
