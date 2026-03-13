@@ -133,15 +133,76 @@ def right_angle_continuous_alphabet(n):
 
 def pyramid_of_aplhabet(n):
     for i in range(n):
-        for j in range(n-i+1):
+        for j in range(n-i-1):
             print(' ',end=' ')
-        breakpoints = 2*i+1 // 2
+        bp = (2 * i +1)//2
+        ch = ord('A')
         for j in range(2*i+1):
-            if j<=breakpoints: print(chr(64+j+1),end=' ')
-            else: print(chr(64+2*i-j+1),end=' ')
-        for j in range(n-i+1):
+            print(chr(ch),end = ' ')
+            if j<bp: ch += 1
+            else: ch -= 1
+        for j in range(n-i-1):
             print(' ',end=' ')
         print()
+
+def reverse_alphabet_triangle(n):
+    for i in range(n):
+        for ch in range(ord('A')+n-1-i,ord('A')+n):
+            print(chr(ch),end=' ')
+        print()
+
+def empty_diamond_shape(n):
+    for i in range(1,n+1):
+        for j in range(n-i+1):
+            print('*',end=' ')
+        for j in range((2*i)-2):
+            print(' ',end=' ')
+        for j in range(n-i+1):
+            print('*',end=' ')
+        print()
+    for i in range(n-1,0,-1):
+        for j in range(n-i+1):
+            print('*',end=' ')
+        for j in range((2*i)-2):
+            print(' ',end=' ')
+        for j in range(n-i+1):
+            print('*',end=' ')
+        print()
+
+def anonymous(n):
+    spaces = 2*n - 2
+    for i in range(1,2*n - 1):
+        stars = i
+        if i>n: stars = 2*n -i
+        for j in range(1,stars+1):
+            print('*',end=' ')
+        for j in range(1,spaces+1):
+            print(' ',end=' ')
+        for j in range(1,stars+1):
+            print('*',end=' ')
+        print()
+        if i<n: spaces -= 2
+        else: spaces += 2
+
+
+def square(n):
+    for i in range(n):
+        for j in range(n):
+            if i==0 or i==n-1 or j==0 or j==n-1:
+                print('*',end=' ')
+            else:
+                print(' ',end=' ')
+        print()
+
+def squaresofnumbers(n):
+    for i in range(2*n - 1):
+        for j in range(2*n -1):
+            top = i
+            left =j
+            right = (2*n - 2) - j
+            bottom = (2*n -2) - i
+            print((n - min(min(top,bottom),min(left,right))),end=' ')
+        print() 
 
 t=int(input())
 for _ in range(t):
@@ -180,3 +241,13 @@ for _ in range(t):
     right_angle_continuous_alphabet(n)
     print('Pyramid of Alphabet:')
     pyramid_of_aplhabet(n)
+    print('Reverse Alphabet Triangle:')
+    reverse_alphabet_triangle(n)
+    print('Empty Diamond Shape:')
+    empty_diamond_shape(n)
+    print('Anonymous Pattern:')
+    anonymous(n)
+    print('Square:')
+    square(n)
+    print('Squares of Numbers:')
+    squaresofnumbers(n)
