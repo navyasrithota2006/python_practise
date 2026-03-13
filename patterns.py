@@ -113,7 +113,35 @@ def right_angle_triangle_continuous_numbers(n):
             num += 1
         print()
 
+def right_angle_triangle_alphabet(n):
+    for i in range(1,n+1):
+        for j in range(i):
+            print(chr(64+j+1),end=' ')
+        print()
 
+def inverted_right_angle_alphabet(n):
+    for i in range(1,n+1):
+        for j in range(n-i+1):
+            print(chr(64+j+1),end = " ")
+        print()
+
+def right_angle_continuous_alphabet(n):
+    for i in range(1,n+1):
+        for j in range(i):
+            print(chr(64+i),end=' ')
+        print()
+
+def pyramid_of_aplhabet(n):
+    for i in range(n):
+        for j in range(n-i+1):
+            print(' ',end=' ')
+        breakpoints = 2*i+1 // 2
+        for j in range(2*i+1):
+            if j<=breakpoints: print(chr(64+j+1),end=' ')
+            else: print(chr(64+2*i-j+1),end=' ')
+        for j in range(n-i+1):
+            print(' ',end=' ')
+        print()
 
 t=int(input())
 for _ in range(t):
@@ -144,3 +172,11 @@ for _ in range(t):
     w_building(n)
     print('Right Angle Triangle of Continuous Numbers:')
     right_angle_triangle_continuous_numbers(n)
+    print('Right Angle Triangle of Alphabet:')
+    right_angle_triangle_alphabet(n)
+    print('Inverted Right Angle Triangle of Alphabet:')
+    inverted_right_angle_alphabet(n)
+    print('Right Angle Triangle of Continuous Alphabet:')
+    right_angle_continuous_alphabet(n)
+    print('Pyramid of Alphabet:')
+    pyramid_of_aplhabet(n)
