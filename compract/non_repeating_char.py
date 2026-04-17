@@ -3,6 +3,7 @@ Given a string, find the first non-repeating character in it and return its inde
 '''
 from collections import Counter
 
+ # counter always results in dict like objects where it has few other features most_common() ,elements() etc 
 def firstuniquechar(s):
     count =Counter(s)
     for i,c in enumerate(s):
