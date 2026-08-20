@@ -1,0 +1,82 @@
+Docker
+
+Different applications cannot run in different os like an application which can run in Linux cannot be running in the mac cause there are dependencies that differ in different os's.
+
+Everytime there is a new versions there should be updated or else the application wont work. This compatible issue is called an "The matrix from hell". they need to develop new environments to successfully run the applications.
+
+so Docker can solve this problem where different applications can be different os's.
+
+Docker containerises the application which has isolated software that can be usually be running in different packed os's.
+
+containers - completely isolated environments. they have their own processes ,services, network interfaces,
+
+docker - to package and containerise applications and to ship them an to run them anywhere anytime
+
+difference between containers vs virtual machines
+
+ 
+
+container      container                    virtual machine       virtual machine
+_________________________                  ________________________________________
+Application | Application                   Application       |      Application
+libs  deps  | libs  deps                    libs deps         |      libs   deps
+________________________                       OS             |          OS         
+         Docker                            ________________________________________                         
+________________________                                Hyperviser
+          os                               ________________________________________
+________________________                         Hardware  infrastructure
+hardware infrastructure                    ________________________________________
+_________________________
+
+
+-->  docker container share the same od kernel wheras the vm's has their own os and kernel.
+-->  docker are light weight wheras the vm's are heavy reching GB's in size
+-->  VM's has higher utilization of hardware because they run different os's simultaneously, whereas container only manage libraries and dependencies alone
+--> booting time of containers is seconds whereas vms are minutes.
+--> VMs offer complete isolation from one another because they do not rely on underlying os or kernel. containers have less isolation kernel is shared between them
+
+
+docker run ansible -- to run ansible
+docker run mongodb -- to run mongodb
+
+
+container vs image
+
+image - package or template - serves as a blueprint used to create one or more containers
+
+container - running instance of an image  - completely isolated environment that has own processes,services,network interfaces
+
+dockerfile -  contains instructions for generating a docker image 
+
+dockerfile >>> docker image >>> docker container
+
+
+dockerhub  -  push docker container, images and also pull docker container images from hub via internet
+
+
+docker run image_name  --- creates new container from image and starts it.
+docker run --name container_name image_name  -- creates new container with name given and starts it.
+(if image is not there locally then docker trys to pull it from hub)
+
+
+docker pull image_name   --- pulls any image from hub
+
+docker ps  ---  shows list of all containers
+
+docker stop container_id  ---  stop a container
+
+docker start container_id  ---  start a container
+
+docker rm container_name or id  --- remove a container only when it is stopped
+
+docker rmi imageid or imagename  ---  deletes the image in docker locally to save up memory
+
+docker images  --- lists all pulled images
+
+docker exec container_name command  --- enters or runs commands in that existing container
+
+1.  docker exec ubuntu_bash ls ---  "ls" runs  inside container names "ubuntu_bash"
+2.  docker run --name ubuntu_bash --rm -i -t ubuntu bash ---  creates a container with the given name and deletes after stoping automatically, interactive mode and opens a terminal, image name is ubuntu starts bash shell of image name
+3.  docker exec -d ubuntu_bash touch /tmp/execworks  ---  inside the running container ubuntu_bash , an empty file is created (touch)  in the specified pathway
+in a detached mode(-d) which means it runs in background
+4.  docker exec -it ubuntu_bash bash  --- open terminal in an interactive and terminal mode
